@@ -3,12 +3,12 @@ const stack = require('../src/stack');
 /** Tests that will not work */
 test('Peek on a stack that should return the top value.', () => {
     stack.push(1);
-    expect(stack.peek()).toBeUndefined();
+    expect(stack.peek()).toBe(1);
 });
 
 test('Pop an empty stack', () => {
     stack.pop();
-    expect(stack.peek()).toBeDefined(); // Returns a defined value
+    expect(stack.peek()).toBeUndefined(); // Returns a defined value
 });
 
 test('Peek after popping the last element', () => {
@@ -18,5 +18,5 @@ test('Peek after popping the last element', () => {
     stack.pop();
     stack.pop();
     stack.pop();
-    expect(stack.peek()).toBeDefined(); // Returns a defined value
+    expect(stack.peek()).toBeUndefined(); // Returns a defined value
 });

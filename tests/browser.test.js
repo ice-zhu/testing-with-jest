@@ -32,7 +32,7 @@ describe('Clicking "Pusha stacken"', () => {
         await alert.accept();
 
         let statusMsg = await driver.findElement(By.id('top_of_stack')).getText();
-        expect(statusMsg).toEqual("n/a");
+        expect(statusMsg).toEqual("Bananer");
     });
 });
 
