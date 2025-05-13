@@ -20,17 +20,20 @@ afterAll(async() => {
     await driver.quit();
 }, defaultTimeout);
 
-test('The stack should be empty in the beginning', async () => {
-    let stack = await driver.findElement(By.id('top_of_stack')).getText();
-    expect(stack).toEqual("n/a");
-});
 
-describe('Clicking "Pusha till stacken"', () => {
-    it('should open a prompt box', async () => {
+/** The error here is that we expect the element bananer to not be added to the stack. */
+describe('Clicking "Pusha stacken"', () => {
+    it('return an error', async () => {
         let push = await driver.findElement(By.id('push'));
         await push.click();
+
         let alert = await driver.switchTo().alert();
         await alert.sendKeys("Bananer");
         await alert.accept();
+
+        let statusMsg = await driver.findElement(By.id('top_of_stack')).getText();
+        expect(statusMsg).toEqual("n/a");
     });
 });
+
+

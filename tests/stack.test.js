@@ -1,19 +1,22 @@
 const stack = require('../src/stack');
 
-test('peek on empty stack returns undefined', () => {
+/** Tests that will not work */
+test('Peek on a stack that should return the top value.', () => {
+    stack.push(1);
     expect(stack.peek()).toBeUndefined();
 });
 
-test('peek on stack with one element returns that element', () => {
-    stack.push(1);
-    expect(stack.peek()).toBeDefined();
-    expect(stack.peek()).toBe(1);
+test('Pop an empty stack', () => {
+    stack.pop();
+    expect(stack.peek()).toBeDefined(); // Returns a defined value
 });
 
-test('peek on stack with two or more elements returns the top element', () => {
+test('Peek after popping the last element', () => {
     stack.push(1);
-    stack.push("wow");
-    stack.push(42);
-    expect(stack.peek()).toBeDefined();
-    expect(stack.peek()).toBe(42);
+    stack.push(2);
+    stack.push(3);
+    stack.pop();
+    stack.pop();
+    stack.pop();
+    expect(stack.peek()).toBeDefined(); // Returns a defined value
 });
